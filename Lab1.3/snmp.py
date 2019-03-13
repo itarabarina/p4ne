@@ -17,7 +17,7 @@ result_next=nextCmd(SnmpEngine(),
                lexicographicMode=False)
 
 for i in result_get:
-    errorIndication, errorStatus, errorIndex, varBinds = result_get
+    errorIndication, errorStatus, errorIndex, varBinds = i
     if errorIndication: print(errorIndication)
     elif errorStatus: print(errorStatus)
     elif errorIndex: print(errorIndex)
@@ -25,7 +25,7 @@ for i in result_get:
         for x in varBinds: print(x)
 
 for i in result_next:
-    errorIndication, errorStatus, errorIndex, varBinds = result_next
+    errorIndication, errorStatus, errorIndex, varBinds = i
     if errorIndication: print(errorIndication)
     elif errorIndex: print(errorIndex)
     elif errorStatus: print(errorStatus)
