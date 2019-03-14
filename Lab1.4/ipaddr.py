@@ -9,10 +9,13 @@ class IPv4RandomNetwork(IPv4Network):
 
     def regular(self):
         if self.is_global: return 1
-        elif self.is_multicast or self.is_unspecified or self.is_private or self.is_loopback or self.is_link_local: return 2
+        elif self.is_multicast or self.is_unspecified or self.is_private or self.is_loopback or self.is_link_local: return 0
+
+#    def key_value(self):
+#        return int(IPv4Network.network_address) + int(IPv4Network.netmask)
 
     def key_value(self):
-        return int(IPv4Network.network_address) + int(IPv4Network.netmask)
+        return (self.netmask, self.network_address)
 
 list_ip = []
 
@@ -20,6 +23,11 @@ for i in range(0, 50):
     network1=IPv4RandomNetwork(8, 24)
     if network1.regular(): list_ip.append(network1)
 
-for i in list_ip:
+def key_sort(x):
+    return x.key_value()
+
+list_sort=sorted(list_ip, key=key_sort)
+
+for i in list_sort:
     print(i)
 
