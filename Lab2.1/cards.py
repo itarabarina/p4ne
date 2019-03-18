@@ -7,7 +7,6 @@ import glob
 
 banks=set()
 cards_number = []
-cards=[]
 
 for current_file in glob.glob("/home/irina/Projects/python/Seafile/p4ne_training/*.json"):
     with open(current_file) as f:
@@ -23,7 +22,7 @@ for i in cards_number:
    r=requests.get(l, headers={'Accept-Version': "3"})
    if 200 <= r.status_code <= 299:
         number = r.json()
-        pprint.pprint(number)
+#        pprint.pprint(number)
         if number['bank']:
             if 'name' in number['bank']:
                 bank = number['bank']['name']
