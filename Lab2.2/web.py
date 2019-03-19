@@ -36,6 +36,7 @@ if __name__ == '__main__':
     for current_file in glob.glob("/home/irina/Projects/python/Seafile/p4ne_training/config_files/*.txt"):
         m=re.match("/home/irina/Projects/python/Seafile/p4ne_training/config_files/(.*)_([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+).*", current_file)
         if m: s=m.group(1)
+        #print(current_file_name)
         hosts[s] = {}
         hosts[s]['ip'] = []
 
