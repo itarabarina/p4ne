@@ -44,7 +44,6 @@ if __name__ == '__main__':
                 m = re.match("^hostname (.+)", line)
                 if m:
                     hosts[s]['hostname'] = m.group(1)
-                    continue
                 i = re.match("^ ip address ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+) ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)", line)
                 if i:
                     hosts[s]['ip'].append(i.group(1))
